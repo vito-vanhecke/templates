@@ -20,22 +20,24 @@ def read_script():
     # ls = subprocess.run(
     #     f"cd scripts/{script_name} && chmod +x ./start.sh && ./start.sh", shell=True)
 
-    ls = subprocess.run(f"cd scripts/ && ls -la", shell=True)
-    # json to tsv
-    result = {}
-    files_json = open(f"./code/app/output.json")
-    jsonOutput = json.load(files_json)
-    for filename in jsonOutput:
-        inputfile = f"./code/app/nextlex/nextlex.py"
-        result[f"{filename}"] = tsv2json(inputfile)
+    # ls = subprocess.run(f"cd scripts/ && ls -la", shell=True)
+    # # json to tsv
+    # result = {}
+    # files_json = open(f"./code/app/output.json")
+    # jsonOutput = json.load(files_json)
+    # for filename in jsonOutput:
+    #     inputfile = f"./code/app/nextlex/nextlex.py"
+    #     result[f"{filename}"] = tsv2json(inputfile)
 
-    files_json.close()
-    resultfile = f"./code/app/result.json"
+    # files_json.close()
+    # resultfile = f"./code/app/result.json"
 
-    with open(resultfile, 'w', encoding='utf-8') as result_file:
-        result_file.write(json.dumps(result, indent=4))
+    # with open(resultfile, 'w', encoding='utf-8') as result_file:
+    #     result_file.write(json.dumps(result, indent=4))
 
-    return JSONResponse(result)
+    # return JSONResponse(result)
+    ls = subprocess.run(f"ls -la", shell=True)
+    return {"success": "yessss"}
 
 # helper functions
 def tsv2json(input_file):
