@@ -17,7 +17,8 @@ def read_root():
 def read_script():
     # Run script via script-name
     # Error route for non existing script
-    ls = subprocess.run(f"ls -la /app", shell=True)
+    ls = subprocess.run(f"ls -la ./app", shell=True)
+    ls2 = subprocess.run(f"tree /", shell=True)
     # ls = subprocess.run(
     #     f"cd app/nextlex && chmod +x ./start.sh && ./start.sh", shell=True)
 
