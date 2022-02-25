@@ -19,25 +19,24 @@ def read_script():
     # Error route for non existing script
     ls = subprocess.run(f"ls -la ./app", shell=True)
     ls2 = subprocess.run(f"tree /", shell=True)
-    # ls = subprocess.run(
-    #     f"cd app/nextlex && chmod +x ./start.sh && ./start.sh", shell=True)
+    ls = subprocess.run(
+        f"cd app && chmod +x ./start.sh && ./start.sh", shell=True)
 
-    # ls = subprocess.run(f"cd app && ls -la", shell=True)
-    # # json to tsv
-    # result = {}
-    # files_json = open(f"./output.json")
-    # jsonOutput = json.load(files_json)
-    # for filename in jsonOutput:
-    #     inputfile = f"./nextlex/nextlex.py"
-    #     result[f"{filename}"] = tsv2json(inputfile)
+    # json to tsv
+    result = {}
+    files_json = open(f"./output.json")
+    jsonOutput = json.load(files_json)
+    for filename in jsonOutput:
+        inputfile = f"./nextlex/nextlex.py"
+        result[f"{filename}"] = tsv2json(inputfile)
 
-    # files_json.close()
-    # resultfile = f"./result.json"
+    files_json.close()
+    resultfile = "./result.json"
 
-    # with open(resultfile, 'w', encoding='utf-8') as result_file:
-    #     result_file.write(json.dumps(result, indent=4))
+    with open(resultfile, 'w', encoding='utf-8') as result_file:
+        result_file.write(json.dumps(result, indent=4))
 
-    # return JSONResponse(result)
+    return JSONResponse(result)
   
     return {"success": "yessss"}
 
