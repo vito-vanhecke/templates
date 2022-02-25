@@ -14,7 +14,7 @@ def read_root():
     return {"Hello": "World"}
 
 @app.get("/run")
-def read_script(script_name: str):
+def read_script():
     # Run script via script-name
     # Error route for non existing script
     # ls = subprocess.run(
