@@ -24,14 +24,14 @@ def read_script():
 
     # json to tsv
     result = {}
-    files_json = open(f"./output.json")
+    files_json = open(f"/code/app/output.json")
     jsonOutput = json.load(files_json)
     for filename in jsonOutput:
         inputfile = f"./nextlex/nextlex.py"
         result[f"{filename}"] = tsv2json(inputfile)
 
     files_json.close()
-    resultfile = "./result.json"
+    resultfile = "/code/app/result.json"
 
     with open(resultfile, 'w', encoding='utf-8') as result_file:
         result_file.write(json.dumps(result, indent=4))
