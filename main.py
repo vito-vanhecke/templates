@@ -20,7 +20,7 @@ def read_script(script_name: str):
     subprocess.run(f"ls -la ./app", shell=True)
     subprocess.run(f"tree /", shell=True)
 
-    subprocess.run(f"cd app/{script_name} && python3 {script_name}.py && cd ../..")
+    subprocess.run(f"cd ./app/{script_name} && python3 {script_name}.py && cd ../..")
 
     # json to tsv
     result = {}
