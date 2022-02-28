@@ -21,7 +21,7 @@ def read_script(script_name: str):
 
     # json to tsv
     result = {}
-    files_json = open(f"/code/app/output.json")
+    files_json = open(f"/code/app/{script_name}/output.json")
     jsonOutput = json.load(files_json)
     for filename in jsonOutput:
         inputfile = f"/code/app/{script_name}/{filename}"
@@ -29,7 +29,7 @@ def read_script(script_name: str):
         result[f"{filename}"] = tsv2json(inputfile)
 
     files_json.close()
-    resultfile = "/code/app/result.json"
+    resultfile = f"/code/app/{script_name}/result.json"
 
     with open(resultfile, 'w', encoding='utf-8') as result_file:
         result_file.write(json.dumps(result, indent=4))
