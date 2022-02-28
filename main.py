@@ -23,7 +23,7 @@ def read_script(script_name: str):
     subprocess.run(f"ls -la ./app/nextlex", shell=True)
     subprocess.run(f"tree /", shell=True)
 
-    subprocess.run(f"ls -la ")
+    subprocess.run(f"python3 /code/app/{script_name}/{script_name}.py", shell=True)
 
     # json to tsv
     result = {}
