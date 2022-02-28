@@ -27,7 +27,7 @@ def read_script():
     files_json = open(f"/code/app/output.json")
     jsonOutput = json.load(files_json)
     for filename in jsonOutput:
-        inputfile = f"./nextlex/nextlex.py"
+        inputfile = f"/code/app/nextlex/nextlex.py"
         result[f"{filename}"] = tsv2json(inputfile)
 
     files_json.close()
