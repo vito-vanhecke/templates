@@ -24,7 +24,7 @@ def read_script(script_name: str):
     files_json = open(f"/code/app/{script_name}/output.json")
     jsonOutput = json.load(files_json)
     for filename in jsonOutput:
-        inputfile = f"/code/app/{script_name}/{filename}"
+        inputfile = f"/code/app/{script_name}/{script_name}/{filename}"
         # clause_....txt
         result[f"{filename}"] = tsv2json(inputfile)
 
