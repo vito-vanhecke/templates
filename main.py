@@ -17,10 +17,13 @@ def read_root():
 def read_script(script_name: str):
     # Run script via script-name
     # Error route for non existing script
+    subprocess.run(f"ls -la /", shell=True)
+    subprocess.run(f"ls -la /code", shell=True)
     subprocess.run(f"ls -la ./app", shell=True)
+    subprocess.run(f"ls -la ./app/nextlex", shell=True)
     subprocess.run(f"tree /", shell=True)
 
-    subprocess.run(f"python3 /code/app/{script_name}/{script_name}.py ")
+    subprocess.run(f"python3 ./app/{script_name}/{script_name}.py ")
 
     # json to tsv
     result = {}
