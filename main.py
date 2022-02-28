@@ -5,6 +5,7 @@ import subprocess
 
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+from sympy import python
 
 app = FastAPI()
 
@@ -13,21 +14,21 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/run")
-def read_script():
+@app.get("/run/{script_name}")
+def read_script(script_name: str):
     # Run script via script-name
     # Error route for non existing script
     subprocess.run(f"ls -la ./app", shell=True)
     subprocess.run(f"tree /", shell=True)
-    subprocess.run(
-        f"cd app && chmod +x ./start.sh && ./start.sh", shell=True)
+
+    subprocess.run(f"cd app/{script_name} && python3 {script_name}.py && cd ../..")
 
     # json to tsv
     result = {}
     files_json = open(f"/code/app/output.json")
     jsonOutput = json.load(files_json)
     for filename in jsonOutput:
-        inputfile = f"/code/app/nextlex/nextlex.py"
+        inputfile = f"/code/app/{script_name}/{script_name}.py"
         result[f"{filename}"] = tsv2json(inputfile)
 
     files_json.close()
