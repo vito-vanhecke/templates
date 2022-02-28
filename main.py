@@ -17,10 +17,10 @@ def read_root():
 def read_script():
     # Run script via script-name
     # Error route for non existing script
-    ls = subprocess.run(f"ls -la ./app", shell=True)
-    ls2 = subprocess.run(f"tree /", shell=True)
-    ls = subprocess.run(
-        f"cd app && chmod +x /code/app/start.sh && /code/app/start.sh", shell=True)
+    subprocess.run(f"ls -la ./app", shell=True)
+    subprocess.run(f"tree /", shell=True)
+    subprocess.run(
+        f"cd app && chmod +x ./start.sh && ./start.sh", shell=True)
 
     # json to tsv
     result = {}
@@ -38,7 +38,7 @@ def read_script():
 
     return JSONResponse(result)
   
-    return {"success": "yessss"}
+  
 
 # helper functions
 def tsv2json(input_file):
