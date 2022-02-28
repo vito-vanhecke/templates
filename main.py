@@ -5,7 +5,6 @@ import subprocess
 
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-from sympy import python
 
 app = FastAPI()
 
